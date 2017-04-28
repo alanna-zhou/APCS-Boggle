@@ -1,16 +1,16 @@
 
 /**
  * 
- * TODO Write a one-sentence summary of your class here. TODO Follow it with
- * additional details about its purpose, what abstraction it represents, and how
- * to use it.
+ * Finds all words quickly, facilitates a game of Boggle by finding every
+ * possible word on a given Boggle board. Uses lexicons from the previous
+ * hierarchy. (Task #3)
  *
- * @author Anvitha, Alanna, Jessica
+ * @author Anvitha
  * @version Apr 27, 2017
  * @author Period: 5
  * @author Assignment: Boggle
  *
- * @author Sources: TODO
+ * @author Sources: none
  */
 public class BoardFirstAutoPlayer extends AbstractAutoPlayer
 {
