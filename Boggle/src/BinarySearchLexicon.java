@@ -52,10 +52,27 @@ public class BinarySearchLexicon implements ILexicon
 
     public LexStatus wordStatus( String s )
     {
+        // PLEASE CHECK CODE BELOW
+        // PLEASE CHECK CODE BELOW
 
-        // You need to make this code use Binary Search
+        // PLEASE CHECK CODE BELOW
+        // PLEASE CHECK CODE BELOW
 
-        return LexStatus.NOT_WORD;
+        int i = Collections.binarySearch( myWords, s );
+        if ( i >= 0 )
+        {
+            return LexStatus.WORD;
+        }
+        else if ( myWords.get( ( i * -1 ) - 1 ).startsWith( s ) ) // not sure if
+                                                                  // this is OK
+
+        {
+            return LexStatus.PREFIX;
+        }
+        else
+        {
+            return LexStatus.NOT_WORD;
+        }
     }
 
 
