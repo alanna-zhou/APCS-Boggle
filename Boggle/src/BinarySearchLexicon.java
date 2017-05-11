@@ -54,7 +54,6 @@ public class BinarySearchLexicon implements ILexicon
     {
         // PLEASE CHECK CODE BELOW
         // PLEASE CHECK CODE BELOW
-
         // PLEASE CHECK CODE BELOW
         // PLEASE CHECK CODE BELOW
 

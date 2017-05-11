@@ -14,25 +14,25 @@ public class TrieLexicon implements ILexicon { //implements ILexicon
 
         Node(char ch, Node p) { //node constructor, contains a character and a node
             info = ""+ch; //add the character
-            isWord = false;
-            children = new TreeMap<Character,Node>();
-            parent = p;
+            isWord = false; //sets isWord to false
+            children = new TreeMap<Character,Node>(); //children is a treemap
+            parent = p; //parent holds reference to the other node
         }
     }
 
     protected Node myRoot; // root of entire trie
-    protected int mySize;
+    protected int mySize; //mySize declared to 0 as of now
 
-    public TrieLexicon() {
-        myRoot = new Node('x', null);
-        mySize = 0;
+    public TrieLexicon() { //actual constructor
+        myRoot = new Node('x', null); //creates a new node with character set to x and pointing to null
+        mySize = 0; //lol setting size to 0 when it's already 0, nice.
     }
 
-    public int size() {
+    public int size() { //returns size of some strange arraylist
         return mySize;
     }
 
-    public void load(ArrayList<String> list){
+    public void load(ArrayList<String> list){ //
         for(String s : list) add(s);
     }
     public boolean add(String s) {
