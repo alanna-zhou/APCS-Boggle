@@ -3,17 +3,17 @@
 import java.util.*;
 
 
-public class TrieLexicon implements ILexicon {
+public class TrieLexicon implements ILexicon { //implements ILexicon
 
-    public static class Node {
-        String info;
-        boolean isWord;
+    public static class Node { //idk why they name their class Node
+        String info; //initialize string
+        boolean isWord; //initialize boolean 
         
-        Map<Character,Node> children;
-        Node parent;
+        Map<Character,Node> children; //create map with character key and node stuff
+        Node parent; //reference to root or parent node
 
-        Node(char ch, Node p) {
-            info = ""+ch;
+        Node(char ch, Node p) { //node constructor, contains a character and a node
+            info = ""+ch; //add the character
             isWord = false;
             children = new TreeMap<Character,Node>();
             parent = p;
