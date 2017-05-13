@@ -64,7 +64,6 @@ public class BinarySearchLexicon implements ILexicon
         }
         else if ( myWords.get( ( i * -1 ) - 1 ).startsWith( s ) ) // not sure if
                                                                   // this is OK
-
         {
             return LexStatus.PREFIX;
         }
