@@ -29,12 +29,9 @@ public class GoodWordOnBoardFinder implements IWordOnBoardFinder
 
     @Override
     /**
-     * Uses recursive backtracking search to find a word on a Boggle board
+     * Uses recursive backtracking search to find a word on a Boggle board by
+     * calling helper()
      * 
-     * TODO don't forget to change BoggleMain to use the this class instead of
-     * BadWordOnBoardFinder
-     * 
-     * There is a JUnit test program
      */
     public List<BoardCell> cellsForWord( BoggleBoard board, String word )
     {
@@ -50,10 +47,10 @@ public class GoodWordOnBoardFinder implements IWordOnBoardFinder
                 // the entire word has been matched
                 if ( helper( r, c, index ) )
                 {
+                    Collections.reverse( list );
                     return list;
                 }
             }
-
         }
         return list;
     }
@@ -117,45 +114,6 @@ public class GoodWordOnBoardFinder implements IWordOnBoardFinder
         }
         list.clear();
         return false;
-    }
-
-
-    public static String getWord( BoggleBoard board, List<BoardCell> list )
-    {
-        String word = "";
-        for ( BoardCell cell : list )
-        {
-            word += board.getFace( cell.row, cell.col );
-        }
-        return word;
-    }
-
-
-    public static String boardCellToString( BoardCell b )
-    {
-        return "board cell at (" + b.row + ", " + b.col + ")";
-    }
-
-
-    public static void main( String[] args )
-    {
-        String[] faces = { "O", "B", "P", "H", "D", "A", "H", "M", "H", "N",
-            "I", "Y", "N", "N", "R", "Y" };
-        BoggleBoard board = new BoggleBoard( faces );
-        System.out.println( "board: \n" + board );
-
-        GoodWordOnBoardFinder finder = new GoodWordOnBoardFinder();
-        List<BoardCell> list = finder.cellsForWord( board, "bap" );
-        System.out.println(
-            "Here is the list of board cells found by GoodWordOnBoardFinder:" );
-        for ( BoardCell b : list )
-        {
-            // String word = getWord( board, list );
-            // System.out.println( word );
-            System.out.println(
-                boardCellToString( b ) + ": " + board.getFace( b.row, b.col ) );
-        }
-
     }
 
 }
