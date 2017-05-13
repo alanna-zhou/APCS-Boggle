@@ -32,6 +32,7 @@ public class GoodWordOnBoardFinder implements IWordOnBoardFinder
      * Uses recursive backtracking search to find a word on a Boggle board by
      * calling helper()
      * 
+     * @return a list of BoardCell objects that match up with the word
      */
     public List<BoardCell> cellsForWord( BoggleBoard board, String word )
     {
@@ -71,7 +72,8 @@ public class GoodWordOnBoardFinder implements IWordOnBoardFinder
      *            time the helper method is called this parameter is zero
      *            (indicating the first character of the string should be
      *            matched).
-     * @return
+     * @return true if the letter at the specific index of the word matches the
+     *         row and column of the BoardCell
      */
     public boolean helper( int r, int c, int index )
     {
