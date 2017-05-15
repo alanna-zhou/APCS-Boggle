@@ -3,21 +3,23 @@ import java.io.InputStream;
 
 
 /**
- * Play a game of Boggle. To play code must instantiate the
- * BoggleGui gui object with a working IWordOnBoardFinder and
- * a working ILexicon, as well as a working IAutoPlayer.
+ * Play a game of Boggle. To play code must instantiate the BoggleGui gui object
+ * with a working IWordOnBoardFinder and a working ILexicon, as well as a
+ * working IAutoPlayer.
  */
 
-public class BoggleMain {
+public class BoggleMain
+{
 
-    public static void main(String[] args) {
-        
-        ILexicon lexicon = new SimpleLexicon();
+    public static void main( String[] args )
+    {
+
+        ILexicon lexicon = new BinarySearchLexicon();
         IWordOnBoardFinder finder = new GoodWordOnBoardFinder();
-        
-        InputStream is = lexicon.getClass().getResourceAsStream("/ospd3.txt");      
+
+        InputStream is = lexicon.getClass().getResourceAsStream( "/ospd3.txt" );
         IAutoPlayer compPlayer = new LexiconFirstAutoPlayer();
-        BoggleGUI bgui = new BoggleGUI(lexicon,finder,is, compPlayer);
+        BoggleGUI bgui = new BoggleGUI( lexicon, finder, is, compPlayer );
     }
 
 }
