@@ -18,11 +18,15 @@ public class CompressedTrieLexicon extends TrieLexicon
 {
 
     /**
-     * Preforms one-child compression
+     * Performs one-child compression
      */
     public void compress()
     {
-        // TODO
+        // Node t = myRoot;
+        // for(Node n : myRoot.children.values()) { {
+        // if()
+        // }
+
     }
 
 

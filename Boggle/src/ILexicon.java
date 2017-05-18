@@ -33,11 +33,11 @@ public interface ILexicon extends Iterable<String>{
     public void load(ArrayList<String> list);
     
     /**
-     * Returns value specifying whether is is in the
-     * lexicon: WORD, is the prefix of a word in
-     * the lexicon: PREFIX, or is not a prefix and
-     * not a word: NOT_WORD. See LexStatus
-     * @param s represents the word/sequence  queried
+     * Returns value specifying whether is in the
+     * lexicon: WORD, 
+     * is the prefix of a word in the lexicon: PREFIX, 
+     * or is not a prefix and not a word: NOT_WORD. See LexStatus
+     * @param s represents the word/sequence queried
      * @return status of s as to how it appears in lexicon
      */
     public LexStatus wordStatus(StringBuilder s);
