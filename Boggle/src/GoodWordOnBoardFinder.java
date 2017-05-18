@@ -92,6 +92,9 @@ public class GoodWordOnBoardFinder implements IWordOnBoardFinder
         {
             return false;
         }
+        System.out.println( "list: " + list.toString() );
+        System.out.println( "list.contains board cell? "
+            + list.contains( new BoardCell( r, c ) ) );
         // if cell at board matches the char at the specified index of string
         if ( board.getFace( r, c ).equalsIgnoreCase(
             ( Character.toString( word.charAt( index ) ) ) ) )
@@ -131,37 +134,42 @@ public class GoodWordOnBoardFinder implements IWordOnBoardFinder
         {
             if ( helper( r + rdelta[i], c + cdelta[i], index ) )
             {
-                list.add( new BoardCell( r, c ) );
-                return true;
+                if ( !list.contains( new BoardCell( r, c ) ) )
+                {
+                    list.add( new BoardCell( r, c ) );
+                    return true;
+                }
+                return false;
             }
         }
         return false;
     }
 
-    // public static String boardCellToString( BoardCell b )
-    // {
-    // return "board cell at (" + b.row + ", " + b.col + ")";
-    // }
-    //
-    //
-    // public static void main( String[] args )
-    // {
-    // String[] faces = { "QU", "B", "P", "H", "D", "A", "H", "M", "H", "N",
-    // "I", "Y", "N", "N", "R", "Y" };
-    // BoggleBoard board = new BoggleBoard( faces );
-    // System.out.println( "board: \n" + board );
-    //
-    // GoodWordOnBoardFinder finder = new GoodWordOnBoardFinder();
-    // List<BoardCell> list = finder.cellsForWord( board, "qubph" );
-    // System.out.println(
-    // "\nHere is the list of board cells found by GoodWordOnBoardFinder:" );
-    // for ( BoardCell b : list )
-    // {
-    //
-    // System.out.println(
-    // boardCellToString( b ) + ": " + board.getFace( b.row, b.col ) );
-    // }
-    //
-    // }
+//
+//    public static String boardCellToString( BoardCell b )
+//    {
+//        return "board cell at (" + b.row + ", " + b.col + ")";
+//    }
+//
+//
+//    public static void main( String[] args )
+//    {
+//        String[] faces = { "QU", "B", "P", "H", "D", "A", "H", "M", "H", "N",
+//            "I", "Y", "N", "N", "R", "Y" };
+//        BoggleBoard board = new BoggleBoard( faces );
+//        System.out.println( "board: \n" + board );
+//
+//        GoodWordOnBoardFinder finder = new GoodWordOnBoardFinder();
+//        List<BoardCell> list = finder.cellsForWord( board, "qubp" );
+//        System.out.println(
+//            "\nHere is the list of board cells found by GoodWordOnBoardFinder:" );
+//        for ( BoardCell b : list )
+//        {
+//
+//            System.out.println(
+//                boardCellToString( b ) + ": " + board.getFace( b.row, b.col ) );
+//        }
+//
+//    }
 
 }
