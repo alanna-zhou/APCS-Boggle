@@ -104,6 +104,8 @@ public class GoodWordOnBoardFinder implements IWordOnBoardFinder
             list.clear();
             return false;
         }
+        // if cell at board matches a substring at the specified index of string
+        // (ex. "qu")
         else if ( index + 2 <= word.length() && board.getFace( r, c )
             .equalsIgnoreCase( word.substring( index, index + 2 ) ) )
         {
@@ -136,31 +138,30 @@ public class GoodWordOnBoardFinder implements IWordOnBoardFinder
         return false;
     }
 
-
-//    public static String boardCellToString( BoardCell b )
-//    {
-//        return "board cell at (" + b.row + ", " + b.col + ")";
-//    }
-//
-//
-//    public static void main( String[] args )
-//    {
-//        String[] faces = { "QU", "B", "P", "H", "D", "A", "H", "M", "H", "N",
-//            "I", "Y", "N", "N", "R", "Y" };
-//        BoggleBoard board = new BoggleBoard( faces );
-//        System.out.println( "board: \n" + board );
-//
-//        GoodWordOnBoardFinder finder = new GoodWordOnBoardFinder();
-//        List<BoardCell> list = finder.cellsForWord( board, "qubph" );
-//        System.out.println(
-//            "\nHere is the list of board cells found by GoodWordOnBoardFinder:" );
-//        for ( BoardCell b : list )
-//        {
-//
-//            System.out.println(
-//                boardCellToString( b ) + ": " + board.getFace( b.row, b.col ) );
-//        }
-//
-//    }
+    // public static String boardCellToString( BoardCell b )
+    // {
+    // return "board cell at (" + b.row + ", " + b.col + ")";
+    // }
+    //
+    //
+    // public static void main( String[] args )
+    // {
+    // String[] faces = { "QU", "B", "P", "H", "D", "A", "H", "M", "H", "N",
+    // "I", "Y", "N", "N", "R", "Y" };
+    // BoggleBoard board = new BoggleBoard( faces );
+    // System.out.println( "board: \n" + board );
+    //
+    // GoodWordOnBoardFinder finder = new GoodWordOnBoardFinder();
+    // List<BoardCell> list = finder.cellsForWord( board, "qubph" );
+    // System.out.println(
+    // "\nHere is the list of board cells found by GoodWordOnBoardFinder:" );
+    // for ( BoardCell b : list )
+    // {
+    //
+    // System.out.println(
+    // boardCellToString( b ) + ": " + board.getFace( b.row, b.col ) );
+    // }
+    //
+    // }
 
 }
