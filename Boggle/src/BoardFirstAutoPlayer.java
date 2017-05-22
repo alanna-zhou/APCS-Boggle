@@ -17,6 +17,7 @@ import java.util.List;
 public class BoardFirstAutoPlayer extends AbstractAutoPlayer {
 
 	public void findAllValidWords(BoggleBoard board, ILexicon lex, int minLength) {
+		myWords.clear();
 		List<BoardCell> listOfCells = new ArrayList<BoardCell>();
 		StringBuilder s = new StringBuilder();
 		for (int i = 0; i < board.size(); i++) {
@@ -67,6 +68,14 @@ public class BoardFirstAutoPlayer extends AbstractAutoPlayer {
 		}
 
 		listOfCells.remove(cell);
-		s.deleteCharAt(s.length() - 1);
+		// for qu
+		if (letter.length() > 1) {
+			s.setLength(s.length() - 2);
+
+		} 
+		if (letter.length() == 1)
+		{
+			s.deleteCharAt(s.length() - 1);
+		}
 	}
 }
