@@ -73,7 +73,7 @@ public class BoggleGUI extends JFrame
         InputStream stream,
         IAutoPlayer compPlayer )
     {
-        super( "Welcome to Compsci Boggle!" );
+        super( "Welcome to Boggle!" );
 
         myLexicon = lex;
         myGameLength = 60;
@@ -343,7 +343,7 @@ public class BoggleGUI extends JFrame
         menu.add( helpMenu );
         helpMenu.setMnemonic( KeyEvent.VK_H );
 
-        JMenuItem aboutGame = new JMenuItem( "About..." );
+        JMenuItem aboutGame = new JMenuItem( "How to Start" );
         helpMenu.add( aboutGame );
         aboutGame.setMnemonic( KeyEvent.VK_A );
         aboutGame.addActionListener( new ActionListener()
@@ -351,13 +351,36 @@ public class BoggleGUI extends JFrame
             public void actionPerformed( ActionEvent e )
             {
                 JOptionPane.showMessageDialog( BoggleGUI.this,
-                    "Compsci Boggle, brought to you\n"
-                        + "by educators and students\n"
-                        + "including, of course, you.",
-                    "About Game",
+                    "Play the game by typing words into the bottom field and "
+                        + "pressing 'Enter'",
+                    "How to Start",
                     JOptionPane.PLAIN_MESSAGE );
+
             }
         } );
+        gameMenu.addSeparator();
+
+        JMenuItem rules = new JMenuItem( "Rules" );
+        helpMenu.add( rules );
+        rules.setMnemonic( KeyEvent.VK_I );
+        rules.addActionListener( new ActionListener()
+        {
+            public void actionPerformed( ActionEvent e )
+            {
+                JOptionPane.showMessageDialog( BoggleGUI.this,
+                    "1. Search for words that can be made from the letters of sequentially adjacent cubes.\n"
+                        + "2. The game is limited by a timer (which can be set in Time).\n"
+                        + "3. Words must have at least 3 letters.\n"
+                        + "4. One letter cube cannot be used more than once in a word.\n"
+                        + "5. Single and plural forms of words are counted as separate words.\n"
+                        + "6. The objective is to get the highest score from finding the most words.\n"
+                        + "7. The longer the words the higher the score.",
+                    "Rules",
+                    JOptionPane.PLAIN_MESSAGE );
+
+            }
+        } );
+
         setJMenuBar( menu );
     }
 
