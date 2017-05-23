@@ -52,10 +52,7 @@ public class BinarySearchLexicon implements ILexicon
 
     public LexStatus wordStatus( String s )
     {
-        // PLEASE CHECK CODE BELOW
-        // PLEASE CHECK CODE BELOW
-        // PLEASE CHECK CODE BELOW
-        // PLEASE CHECK CODE BELOW
+        
 
         int i = Collections.binarySearch( myWords, s );
         if ( i >= 0 )

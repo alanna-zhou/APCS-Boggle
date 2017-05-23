@@ -1,5 +1,6 @@
 import java.util.ArrayList;
-
+import java.util.Scanner;
+//I unimported Trielexicon because of an error, not sure what damage is
 
 /**
  * 
@@ -16,17 +17,70 @@ import java.util.ArrayList;
  */
 public class CompressedTrieLexicon extends TrieLexicon
 {
+    private ArrayList<Node> container = new ArrayList<Node>();
+
 
     /**
      * Performs one-child compression
      */
     public void compress()
     {
-        // Node t = myRoot;
-        // for(Node n : myRoot.children.values()) { {
-        // if()
-        // }
+        removeIndividual( myRoot );
+        for ( int i = 0; i < container.size(); i++ )
+        {
+            recursivelyCompress( container.get( i ) );
+        }
 
+    }
+
+
+    public void removeIndividual( Node n )
+    {
+        // root
+        if ( n.children.isEmpty() )
+        { // if node's children is empty, add node to the arraylist and return
+            container.add( n );
+            return;
+        }
+        for ( Character child : n.children.keySet() ) // keep iterating
+                                                      // through map and
+                                                      // adding the nodes
+                                                      // that are not
+                                                      // empty
+        {
+            Node nextNode = n.children.get( child );
+            removeIndividual( nextNode );
+        }
+    }
+
+
+    private void recursivelyCompress( Node n )
+    {
+        if ( n.parent.children.size() == 1 && n.parent.isWord ) // check
+                                                                // if
+                                                                // node's
+                                                                // parent
+                                                                // only
+                                                                // has
+                                                                // 1
+                                                                // child
+                                                                // (itself)
+                                                                // and
+                                                                // that
+                                                                // the
+                                                                // parent
+                                                                // is
+                                                                // not
+                                                                // a
+                                                                // word
+        {
+            // consolidate the information of children
+            n.parent.info += n.info;
+            n.parent.children.clear();
+            // make it clear that the parent is a word after consolidation
+            n.parent.isWord = true;
+            recursivelyCompress( n.parent );
+        }
     }
 
 
@@ -36,5 +90,13 @@ public class CompressedTrieLexicon extends TrieLexicon
         super.load( list );
         compress();
     }
+
+
+
+
+//    public LexStatus wordStatus( String s )
+//    {
+//       //fix
+//    }
 
 }
