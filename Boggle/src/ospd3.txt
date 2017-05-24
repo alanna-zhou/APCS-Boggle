@@ -151,7 +151,6 @@ art
 ash
 ask
 asp
-ass
 ate
 att
 auk
@@ -1195,7 +1194,6 @@ anta
 ante
 anti
 ants
-anus
 aped
 aper
 apes
@@ -1422,7 +1420,6 @@ bone
 bong
 bonk
 bony
-boob
 book
 boom
 boon
@@ -1724,7 +1721,6 @@ cuke
 cull
 culm
 cult
-cunt
 cups
 curb
 curd
@@ -2250,7 +2246,6 @@ frow
 frug
 fubs
 fuci
-fuck
 fuds
 fuel
 fugs
@@ -2581,7 +2576,6 @@ hock
 hods
 hoed
 hoer
-hoes
 hogg
 hogs
 hoke
@@ -4471,7 +4465,6 @@ tire
 tirl
 tiro
 titi
-tits
 tivy
 toad
 toby
@@ -5721,7 +5714,6 @@ birth
 bises
 bisks
 bison
-bitch
 biter
 bites
 bitsy
@@ -5838,7 +5830,6 @@ bonne
 bonny
 bonus
 bonze
-boobs
 booby
 booed
 boogy
@@ -7760,7 +7751,6 @@ fruit
 frump
 fryer
 fubsy
-fucks
 fucus
 fudge
 fuels
@@ -11601,7 +11591,6 @@ shirk
 shirr
 shirt
 shist
-shits
 shiva
 shive
 shivs
@@ -12606,7 +12595,6 @@ tithe
 titis
 title
 titre
-titty
 tizzy
 toads
 toady
@@ -14116,7 +14104,6 @@ anural
 anuran
 anuria
 anuric
-anuses
 anvils
 anyhow
 anyone
@@ -14931,7 +14918,6 @@ bisque
 bister
 bistre
 bistro
-bitchy
 biters
 biting
 bitted
@@ -18682,9 +18668,6 @@ fryers
 frying
 frypan
 fubbed
-fucked
-fucker
-fuckup
 fucoid
 fucose
 fucous
@@ -25464,7 +25447,6 @@ shirrs
 shirts
 shirty
 shists
-shitty
 shivah
 shivas
 shiver
@@ -29890,7 +29872,6 @@ assayer
 assegai
 assents
 asserts
-asshole
 assigns
 assists
 assizes
@@ -30819,8 +30800,6 @@ bistred
 bistres
 bistros
 bitable
-bitched
-bitches
 bittern
 bitters
 bittier
@@ -36681,9 +36660,6 @@ fubbing
 fubsier
 fuchsia
 fuchsin
-fuckers
-fucking
-fuckups
 fucoids
 fucoses
 fucuses
@@ -49450,7 +49426,6 @@ titmice
 titrant
 titrate
 titters
-titties
 tittles
 tittups
 titular
@@ -53302,7 +53277,6 @@ assertor
 assessed
 assesses
 assessor
-assholes
 assignat
 assigned
 assignee
@@ -55250,7 +55224,6 @@ bullpens
 bullpout
 bullring
 bullrush
-bullshit
 bullshot
 bullweed
 bullwhip
@@ -74178,7 +74151,6 @@ shirring
 shirtier
 shirting
 shitakes
-shithead
 shittahs
 shittier
 shittims

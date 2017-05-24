@@ -168,7 +168,7 @@ public class BoggleGUI extends JFrame
 
     /**
      * Read word list from file with name WORDLISTFILENAME, and pass a Set
-     * containing those words to the computer player to intialize its lexicon.
+     * containing those words to the computer player to initialize its lexicon.
      */
     private void initLexicon( InputStream stream )
     {
@@ -338,6 +338,25 @@ public class BoggleGUI extends JFrame
             }
         } );
 
+        // Player menu
+        JMenu playerMenu = new JMenu( "Player" );
+        menu.add( playerMenu );
+        playerMenu.setMnemonic( KeyEvent.VK_B );
+
+        JMenuItem username = new JMenuItem( "Set Username" );
+        playerMenu.add( username );
+        username.addActionListener( new ActionListener()
+        {
+            public void actionPerformed( ActionEvent e )
+            {
+                String name = JOptionPane.showInputDialog( BoggleGUI.this,
+                    "Type in a username" );
+                humanArea.setName( name );
+            }
+        } );
+
+        gameMenu.addSeparator();
+
         // Help menu
         JMenu helpMenu = new JMenu( "Help" );
         menu.add( helpMenu );
@@ -352,13 +371,14 @@ public class BoggleGUI extends JFrame
             {
                 JOptionPane.showMessageDialog( BoggleGUI.this,
                     "Play the game by typing words into the bottom field and "
-                        + "pressing 'Enter'",
+                        + "pressing 'Enter' on your keyboard\n"
+                        + "If you would like to generate all possible found words, click 'DONE'",
                     "How to Start",
                     JOptionPane.PLAIN_MESSAGE );
 
             }
         } );
-        gameMenu.addSeparator();
+        helpMenu.addSeparator();
 
         JMenuItem rules = new JMenuItem( "Rules" );
         helpMenu.add( rules );
@@ -755,7 +775,7 @@ public class BoggleGUI extends JFrame
             scoreText.setText( player.getScore() + "" );
             scoreText.paintImmediately( scoreText.getVisibleRect() );
             myWordList.paintImmediately( myWordList.getVisibleRect() );
-            // myBoardPanel.highlightDice(letterLocations);
+            myBoardPanel.highlightDice( letterLocations );
             wordEntryField.clear(); // clear the wordEntryField text
         }
 
