@@ -3,7 +3,7 @@ import static org.junit.Assert.*;
 import org.junit.*;
 import java.util.*;
 
-public class TestLexicon {
+public class JUnitTestLexicon {
 
     private ArrayList<String> myWords;
     private ArrayList<String> myPrefixes;

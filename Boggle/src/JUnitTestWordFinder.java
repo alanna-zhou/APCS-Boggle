@@ -4,7 +4,7 @@ import org.junit.*;
 import java.util.*;
 
 
-public class TestWordFinder
+public class JUnitTestWordFinder
 {
 
     private IBoardMaker myMaker;
