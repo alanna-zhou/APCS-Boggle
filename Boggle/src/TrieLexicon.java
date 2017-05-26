@@ -2,6 +2,14 @@
 import java.util.*;
 
 
+/**
+ * 
+ * TODO Write a one-sentence summary of your class here. TODO Follow it with
+ * additional details about its purpose, what abstraction it represents, and how
+ * to use it.
+ *
+ * 
+ */
 public class TrieLexicon implements ILexicon
 { // implements ILexicon
 
@@ -135,8 +143,13 @@ public class TrieLexicon implements ILexicon
                                                                         // rid
                                                                         // of
                                                                         // the
-                                                                        // character at end of string builder
-                                                                       
+                                                                        // character
+                                                                        // at
+                                                                        // end
+                                                                        // of
+                                                                        // string
+                                                                        // builder
+
         }
     }
 

@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-//I unimported Trielexicon because of an error, not sure what damage is
+// I unimported Trielexicon because of an error, not sure what damage is
+
 
 /**
  * 
@@ -8,7 +9,7 @@ import java.util.Scanner;
  * can be compressed into a node storing a suffix rather than a single
  * character.
  *
- * @author
+ * @author Jessica Peng
  * @version Apr 28, 2017
  * @author Period: 5
  * @author Assignment: Boggle
@@ -91,12 +92,9 @@ public class CompressedTrieLexicon extends TrieLexicon
         compress();
     }
 
-
-
-
-//    public LexStatus wordStatus( String s )
-//    {
-//       //fix
-//    }
+    // public LexStatus wordStatus( String s )
+    // {
+    // //fix
+    // }
 
 }

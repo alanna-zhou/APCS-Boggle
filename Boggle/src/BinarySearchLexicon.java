@@ -2,11 +2,8 @@ import java.util.*;
 
 
 /**
- * Documentation:
- * http://www.cs.duke.edu/csed/java/jdk1.5/docs/api/java/util/Collections.html#binarySearch(java.util.List,java.lang.Object)
  * 
- *
- * @author
+ * @author Jessica Peng
  * @version Apr 28, 2017
  * @author Period: 5
  * @author Assignment: Boggle
@@ -52,7 +49,6 @@ public class BinarySearchLexicon implements ILexicon
 
     public LexStatus wordStatus( String s )
     {
-        
 
         int i = Collections.binarySearch( myWords, s );
         if ( i >= 0 )

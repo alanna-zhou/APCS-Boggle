@@ -33,7 +33,7 @@ public abstract class AbstractPlayer implements IPlayer {
     }
     
     /**
-     * Set a veiw for this player, if not called
+     * Set a view for this player, if not called
      * the player will have a null view.
      * @param view is this player's view
      */

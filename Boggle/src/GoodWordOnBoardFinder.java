@@ -8,7 +8,7 @@ import java.util.List;
  * Finds a word on a Boggle board. Will be used to determine where a word
  * appears on a board when a player plays the game. (Task #1)
  * 
- * JUnit Tests for this class are in TestWordFinder.
+ * JUnit Tests for this class are in JUnitTestWordFinder.
  *
  * @author Alanna Zhou
  * @version Apr 28, 2017
@@ -145,31 +145,31 @@ public class GoodWordOnBoardFinder implements IWordOnBoardFinder
         return false;
     }
 
-//
-//    public static String boardCellToString( BoardCell b )
-//    {
-//        return "board cell at (" + b.row + ", " + b.col + ")";
-//    }
-//
-//
-//    public static void main( String[] args )
-//    {
-//        String[] faces = { "QU", "B", "P", "H", "D", "A", "H", "M", "H", "N",
-//            "I", "Y", "N", "N", "R", "Y" };
-//        BoggleBoard board = new BoggleBoard( faces );
-//        System.out.println( "board: \n" + board );
-//
-//        GoodWordOnBoardFinder finder = new GoodWordOnBoardFinder();
-//        List<BoardCell> list = finder.cellsForWord( board, "qubp" );
-//        System.out.println(
-//            "\nHere is the list of board cells found by GoodWordOnBoardFinder:" );
-//        for ( BoardCell b : list )
-//        {
-//
-//            System.out.println(
-//                boardCellToString( b ) + ": " + board.getFace( b.row, b.col ) );
-//        }
-//
-//    }
+    //
+    // public static String boardCellToString( BoardCell b )
+    // {
+    // return "board cell at (" + b.row + ", " + b.col + ")";
+    // }
+    //
+    //
+    // public static void main( String[] args )
+    // {
+    // String[] faces = { "QU", "B", "P", "H", "D", "A", "H", "M", "H", "N",
+    // "I", "Y", "N", "N", "R", "Y" };
+    // BoggleBoard board = new BoggleBoard( faces );
+    // System.out.println( "board: \n" + board );
+    //
+    // GoodWordOnBoardFinder finder = new GoodWordOnBoardFinder();
+    // List<BoardCell> list = finder.cellsForWord( board, "qubp" );
+    // System.out.println(
+    // "\nHere is the list of board cells found by GoodWordOnBoardFinder:" );
+    // for ( BoardCell b : list )
+    // {
+    //
+    // System.out.println(
+    // boardCellToString( b ) + ": " + board.getFace( b.row, b.col ) );
+    // }
+    //
+    // }
 
 }
