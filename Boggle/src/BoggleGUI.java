@@ -775,7 +775,7 @@ public class BoggleGUI extends JFrame
             scoreText.setText( player.getScore() + "" );
             scoreText.paintImmediately( scoreText.getVisibleRect() );
             myWordList.paintImmediately( myWordList.getVisibleRect() );
-            myBoardPanel.highlightDice( letterLocations );
+            // myBoardPanel.highlightDice( letterLocations );
             wordEntryField.clear(); // clear the wordEntryField text
         }
 
