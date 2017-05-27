@@ -121,7 +121,6 @@ public class JUnitTestWordFinder
         String[] cornerWords = { "notary", "urine", "need", "diners", "astride",
             "nosier" };
         BoggleBoard board = myMaker.makeBoard( 4 );
-        System.out.println( board.toString() );
         for ( String s : cornerWords )
         {
             List<BoardCell> list = myFinder.cellsForWord( board, s );
@@ -137,15 +136,24 @@ public class JUnitTestWordFinder
     @Test
     public void testDuplicates()
     {
-        String[] cornerWords = { "nun", "rar", "tet", "tat" };
-        BoggleBoard board = myMaker.makeBoard( 4 );
-        System.out.println( board.toString() );
-        for ( String s : cornerWords )
-        {
-            List<BoardCell> list = myFinder.cellsForWord( board, s );
-            String word = getWord( board, list );
-            assertNotSame( "fail for " + s, s, word );
-        }
+        String[] faces = { "t", "o", "h", "o", "e", "t", "p", "n", "o", "a",
+            "e", "e", "p", "t", "y", "s" };
+        BoggleBoard board = new BoggleBoard( faces );
+
+        List<BoardCell> list = myFinder.cellsForWord( board, "tet" );
+        List<BoardCell> correctList = new ArrayList<BoardCell>();
+        correctList.add( new BoardCell( 0, 0 ) );
+        correctList.add( new BoardCell( 0, 1 ) );
+        correctList.add( new BoardCell( 1, 1 ) );
+        assertNotSame( "fail for tet", correctList, list );
+
+        List<BoardCell> list1 = myFinder.cellsForWord( board, "ene" );
+        List<BoardCell> correctList1 = new ArrayList<BoardCell>();
+        correctList.add( new BoardCell( 2, 2 ) );
+        correctList.add( new BoardCell( 1, 3 ) );
+        correctList.add( new BoardCell( 2, 3 ) );
+        assertNotSame( "fail for ene", correctList1, list1 );
+
     }
 
 }
