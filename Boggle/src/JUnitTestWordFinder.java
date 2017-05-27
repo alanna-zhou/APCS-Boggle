@@ -129,4 +129,23 @@ public class JUnitTestWordFinder
             assertNotSame( "fail for " + s, s, word );
         }
     }
+
+
+    /**
+     * GoodWordOnBoardFinder is expected to return false for duplicate cells.
+     */
+    @Test
+    public void testDuplicates()
+    {
+        String[] cornerWords = { "nun", "rar", "tet", "tat" };
+        BoggleBoard board = myMaker.makeBoard( 4 );
+        System.out.println( board.toString() );
+        for ( String s : cornerWords )
+        {
+            List<BoardCell> list = myFinder.cellsForWord( board, s );
+            String word = getWord( board, list );
+            assertNotSame( "fail for " + s, s, word );
+        }
+    }
+
 }
