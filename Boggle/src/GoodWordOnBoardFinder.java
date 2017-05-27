@@ -106,8 +106,13 @@ public class GoodWordOnBoardFinder implements IWordOnBoardFinder
             {
                 if ( helper( r + rdelta[i], c + cdelta[i], index ) )
                 {
-                    list.add( new BoardCell( r, c ) );
-                    return true;
+                    if ( !list.contains( new BoardCell( r, c ) ) )
+                    {
+                        list.add( new BoardCell( r, c ) );
+                        return true;
+                    }
+                    return false;
+
                 }
             }
 
@@ -128,8 +133,12 @@ public class GoodWordOnBoardFinder implements IWordOnBoardFinder
             {
                 if ( helper( r + rdelta[i], c + cdelta[i], index ) )
                 {
-                    list.add( new BoardCell( r, c ) );
-                    return true;
+                    if ( !list.contains( new BoardCell( r, c ) ) )
+                    {
+                        list.add( new BoardCell( r, c ) );
+                        return true;
+                    }
+                    return false;
                 }
             }
 
@@ -148,13 +157,13 @@ public class GoodWordOnBoardFinder implements IWordOnBoardFinder
     //
     // public static void main( String[] args )
     // {
-    // String[] faces = { "a", "t", "r", "u", "s", "e", "a", "n", "n", "i",
-    // "o", "t", "b", "d", "e", "n" };
+    // String[] faces = { "x", "e", "k", "n", "c", "a", "o", "d", "e", "o",
+    // "h", "u", "i", "t", "r", "h" };
     // BoggleBoard board = new BoggleBoard( faces );
     // System.out.println( "board: \n" + board );
     //
     // GoodWordOnBoardFinder finder = new GoodWordOnBoardFinder();
-    // List<BoardCell> list = finder.cellsForWord( board, "reinstate" );
+    // List<BoardCell> list = finder.cellsForWord( board, "tot" );
     // System.out.println(
     // "\nHere is the list of board cells found by GoodWordOnBoardFinder:" );
     // for ( BoardCell b : list )

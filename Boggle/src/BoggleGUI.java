@@ -824,6 +824,12 @@ public class BoggleGUI extends JFrame
                     {
                         java.util.List<BoardCell> list = myFinder
                             .cellsForWord( myBoard, s );
+                        System.out.println( "Printing board cells" );
+                        for ( BoardCell c : list )
+                        {
+                            System.out.println(
+                                "BoardCell: (" + c.row + ", " + c.col + ")" );
+                        }
                         myString.delete( 0, myString.length() );
                         for ( BoardCell cell : list )
                         {
