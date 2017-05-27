@@ -18,7 +18,7 @@ public class JUnitTestLexicon
 
     public ILexicon makeLexicon()
     {
-        return new SimpleLexicon();
+        return new BinarySearchLexicon();
     }
 
 
