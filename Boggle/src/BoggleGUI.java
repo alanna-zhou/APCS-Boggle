@@ -754,6 +754,7 @@ public class BoggleGUI extends JFrame
         {
             resetScore(); // zero out score
             myWordList.clear(); // remove words from Panel/list
+            humanPlayer.clear();
             paintImmediately( getVisibleRect() );
         }
 
