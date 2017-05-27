@@ -3,6 +3,12 @@ import org.junit.*;
 import java.util.*;
 
 
+/**
+ * JUnit Tests for the GoodWordOnBoardFinder. Tests if it correctly finds words
+ * on the board and correctly returns the list of board cells that are
+ * associated with the letters of the word.
+ * 
+ */
 public class JUnitTestWordFinder
 {
 
@@ -11,6 +17,10 @@ public class JUnitTestWordFinder
     private IWordOnBoardFinder myFinder;
 
 
+    /**
+     * Creates the board needed to find the words on.
+     * 
+     */
     public class LocalBoardMaker implements IBoardMaker
     {
 
@@ -31,6 +41,9 @@ public class JUnitTestWordFinder
     }
 
 
+    /**
+     * Initializes the board maker and finder constructors
+     */
     @Before
     public void setUp()
     {
@@ -39,6 +52,15 @@ public class JUnitTestWordFinder
     }
 
 
+    /**
+     * To string method for the list of BoardCell objects in the list.
+     * 
+     * @param board
+     *            boggle board
+     * @param list
+     *            list of BoardCell objects
+     * @return String representation of the list
+     */
     private String getWord( BoggleBoard board, List<BoardCell> list )
     {
         String word = "";
@@ -50,6 +72,10 @@ public class JUnitTestWordFinder
     }
 
 
+    /**
+     * GoodWordOnBoardFinder is expected to find these words in the corner of
+     * the board.
+     */
     @Test
     public void testGoodCorners()
     {
@@ -65,6 +91,10 @@ public class JUnitTestWordFinder
     }
 
 
+    /**
+     * GoodWordOnBoardFinder is expected to find these words that are not in the
+     * corner of the board.
+     */
     @Test
     public void testNonCorners()
     {
@@ -80,12 +110,18 @@ public class JUnitTestWordFinder
         }
     }
 
+
+    /**
+     * GoodWordOnBoardFinder is expected to return an empty list because these
+     * should not be words found.
+     */
     @Test
     public void testBadCorners()
     {
         String[] cornerWords = { "notary", "urine", "need", "diners", "astride",
             "nosier" };
         BoggleBoard board = myMaker.makeBoard( 4 );
+        System.out.println( board.toString() );
         for ( String s : cornerWords )
         {
             List<BoardCell> list = myFinder.cellsForWord( board, s );
