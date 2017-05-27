@@ -1,4 +1,3 @@
-
 import static org.junit.Assert.*;
 import org.junit.*;
 import java.util.*;
@@ -80,7 +79,6 @@ public class JUnitTestWordFinder
             assertEquals( "fail for " + s, s, word );
         }
     }
-
 
     @Test
     public void testBadCorners()
