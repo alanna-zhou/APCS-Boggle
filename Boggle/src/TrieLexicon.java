@@ -4,15 +4,22 @@ import java.util.*;
 
 /**
  * 
- * TODO Write a one-sentence summary of your class here. TODO Follow it with
- * additional details about its purpose, what abstraction it represents, and how
- * to use it.
+ * TrieLexicon is a special type of data structure that contains maps inside of
+ * nodes
  *
  * 
  */
 public class TrieLexicon implements ILexicon
 { // implements ILexicon
 
+    /**
+     * 
+     * The node class contains info which contains the character or strin in the
+     * node, a boolean of whether the string contained is a word, a map of nodes
+     * named children, and a parent node
+     *
+     * 
+     */
     public static class Node
     {
         String info; // initialize string
@@ -25,6 +32,17 @@ public class TrieLexicon implements ILexicon
         Node parent; // reference to root or parent node
 
 
+        /**
+         * 
+         * Constructor for Node
+         * 
+         * @param ch
+         *            character inside node
+         * @param p
+         *            the node that becomes parent
+         *
+         * 
+         */
         Node( char ch, Node p )
         { // node constructor, contains a character and a node
             info = "" + ch; // the character
@@ -36,6 +54,12 @@ public class TrieLexicon implements ILexicon
         }
 
 
+        /**
+         * 
+         * Determines whether the info in the node is a word or not
+         *
+         * 
+         */
         public boolean isWord()
         {
             return isWord;
@@ -47,6 +71,10 @@ public class TrieLexicon implements ILexicon
     protected int mySize;
 
 
+    /**
+     * Constructor of TrieLexicon that creates a new root node and initializes
+     * size to 0
+     */
     public TrieLexicon()
     { // actual constructor
         myRoot = new Node( 'x', null ); // creates a new node with character set
@@ -55,12 +83,27 @@ public class TrieLexicon implements ILexicon
     }
 
 
+    /**
+     * 
+     * Returns size of arraylist
+     *
+     * 
+     */
     public int size()
     { // returns size of some strange arraylist
         return mySize;
     }
 
 
+    /**
+     * 
+     * Loads the list and adds it to the trie
+     * 
+     * @param list
+     *            with String to add to the trielexicon
+     *
+     * 
+     */
     public void load( ArrayList<String> list )
     { // traverses arraylist and builds it into the trielexicon
         for ( String s : list )
@@ -68,6 +111,16 @@ public class TrieLexicon implements ILexicon
     }
 
 
+    /**
+     * 
+     * Adds a string to the trielexicon
+     * 
+     * @param s
+     *            string to add
+     * @return whether it is already in set or whether they marked it as a word
+     *
+     * 
+     */
     public boolean add( String s )
     {
         Node t = myRoot; // root of trielexicon
@@ -101,12 +154,17 @@ public class TrieLexicon implements ILexicon
     }
 
 
+    /**
+     * 
+     * Iterates through trielexicon
+     *
+     * 
+     */
     public Iterator<String> iterator()
     {
         ArrayList<String> list = new ArrayList<String>(); // random string
-                                                          // Arraylist (why
-                                                          // string and not
-                                                          // nodes?)
+                                                          // Arraylist
+
         StringBuilder str = new StringBuilder(); // constructs "empty" 16
                                                  // character string
         for ( Node n : myRoot.children.values() )
@@ -121,6 +179,19 @@ public class TrieLexicon implements ILexicon
     }
 
 
+    /**
+     * 
+     * Fills up data structure recursively
+     * 
+     * @param root
+     *            starting root to fillUp
+     * @param list
+     *            list of strings
+     * @param str
+     *            the stringbuilder used to add strings to trielexicon
+     *
+     * 
+     */
     protected void fillUp(
         Node root,
         ArrayList<String> list,
@@ -154,6 +225,15 @@ public class TrieLexicon implements ILexicon
     }
 
 
+    /**
+     * 
+     * Loads the words scanned in and adds them to list
+     * 
+     * @param s
+     *            scanner that scans in the words
+     *
+     * 
+     */
     public void load( Scanner s )
     {
         while ( s.hasNext() )
@@ -163,6 +243,16 @@ public class TrieLexicon implements ILexicon
     }
 
 
+    /**
+     * 
+     * Returns the WordStatus of the string
+     * 
+     * @param s
+     *            isthe stringbuilder that contains the string to check the
+     *            status of
+     *
+     * 
+     */
     public LexStatus wordStatus( StringBuilder s )
     {
         Node t = myRoot;
@@ -183,12 +273,28 @@ public class TrieLexicon implements ILexicon
     }
 
 
+    /**
+     * 
+     * Counts one-day count of nodes from the root
+     * 
+     * @return count of the nodes
+     *
+     * 
+     */
     public int oneWayCount()
     {
         return oneWay( myRoot );
     }
 
 
+    /**
+     * 
+     * Returns node count in trielexicon
+     * 
+     * @return counts of the nodes
+     *
+     * 
+     */
     protected int oneWay( Node root )
     {
         int count = 0;
@@ -204,12 +310,28 @@ public class TrieLexicon implements ILexicon
     }
 
 
+    /**
+     * 
+     * Returns count of node from root
+     * 
+     * @return count of node
+     *
+     * 
+     */
     public int nodeCount()
     {
         return doCount( myRoot );
     }
 
 
+    /**
+     * 
+     * Counts children from root of trielexicon
+     * 
+     * @param root
+     *            the root to start counting from
+     * 
+     */
     protected int doCount( Node root )
     {
         int count = 1; // count this node
@@ -220,12 +342,6 @@ public class TrieLexicon implements ILexicon
             count += doCount( n );
         }
         return count;
-    }
-
-
-    public static void main( String[] args )
-    {
-        System.out.println( "hello" );
     }
 
 }
