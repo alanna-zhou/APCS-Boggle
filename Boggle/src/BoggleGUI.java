@@ -717,6 +717,13 @@ public class BoggleGUI extends JFrame
         private JLabel nameText, scoreText;
 
 
+        /**
+         * Constructor for PlayerView by initializing the components of the GUI
+         * for what the game should look like to the human player.
+         * 
+         * @param player
+         *            human player
+         */
         public PlayerView( String player )
         {
             playerName = new String( player );
@@ -787,6 +794,9 @@ public class BoggleGUI extends JFrame
         }
 
 
+        /**
+         * Shows a message error
+         */
         public void showError( String word, String error )
         {
             JOptionPane.showMessageDialog( this,
@@ -797,6 +807,10 @@ public class BoggleGUI extends JFrame
         }
 
 
+        /**
+         * Sets components "unready" so that the next game can be started with
+         * cleared components.
+         */
         public void setReady()
         {
             resetScore(); // zero out score
@@ -806,6 +820,9 @@ public class BoggleGUI extends JFrame
         }
 
 
+        /**
+         * Sets the name of the player to what is passed in the parameter.F
+         */
         public void setName( String newName )
         {
             playerName = newName;
@@ -831,6 +848,9 @@ public class BoggleGUI extends JFrame
         }
 
 
+        /**
+         * Resets the score for when a new game is called.
+         */
         public void resetScore()
         {
             scoreText.setText( 0 + "" );
@@ -853,6 +873,10 @@ public class BoggleGUI extends JFrame
         private StringBuilder myString;
 
 
+        /**
+         * Constructs a entry field for the human player to enter the words
+         * found.
+         */
         public WordEntryField()
         {
             // Set up for human player's Text Entry Field
@@ -922,12 +946,20 @@ public class BoggleGUI extends JFrame
         }
 
 
+        /**
+         * Clears the text field.
+         */
         public void clear()
         {
             textField.setText( "" );
         }
 
 
+        /**
+         * Makes sure that the text field is not able to take in any more words
+         * when the game is not in session.
+         * 
+         */
         public void setUnready()
         {
             clear();
@@ -938,6 +970,10 @@ public class BoggleGUI extends JFrame
         }
 
 
+        /**
+         * Sets the text field ready for the user to interact with when the game
+         * starts.
+         */
         public void setReady()
         {
             textField.setEditable( true );
