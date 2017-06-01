@@ -4,6 +4,12 @@ import org.junit.*;
 import java.util.*;
 
 
+/**
+ * 
+ * Tests any of the Lexicon classes by checking if different types of words are
+ * able to be confirmed by the specified Lexicon class.
+ *
+ */
 public class JUnitTestLexicon
 {
 
@@ -16,12 +22,20 @@ public class JUnitTestLexicon
     private ILexicon myLexicon;
 
 
+    /**
+     * Constructs the lexicon class to be tested.
+     * 
+     * @return lexicon object
+     */
     public ILexicon makeLexicon()
     {
         return new BinarySearchLexicon();
     }
 
 
+    /**
+     * Sets up the words and lexicon to be tested with.
+     */
     @Before
     public void setUp()
     {
@@ -40,6 +54,10 @@ public class JUnitTestLexicon
     }
 
 
+    /**
+     * Tests if the actual number of words and the words found in the lexicon
+     * are the same.
+     */
     @Test
     public void wordTest()
     {
@@ -54,6 +72,9 @@ public class JUnitTestLexicon
     }
 
 
+    /**
+     * Tests if prefix words are able to be found in the lexicon.
+     */
     @Test
     public void prefixTest()
     {
@@ -65,6 +86,10 @@ public class JUnitTestLexicon
     }
 
 
+    /**
+     * Tests if words that are not supposed to be found in the lexicon are
+     * found.
+     */
     @Test
     public void nonWordTest()
     {
