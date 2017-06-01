@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-// I unimported Trielexicon because of an error, not sure what damage is
 
 
 /**
