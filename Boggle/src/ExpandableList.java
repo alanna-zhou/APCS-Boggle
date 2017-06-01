@@ -7,23 +7,16 @@ import java.util.*;
  * Subclass of JList intended to grow as elements are added to the list (via the
  * model, but that's not seen by clients).
  *
- * Features added to this JList not part of standard JList
- * <UL>
- * <LI>growable by calling add(..), JList updates after call
- * <P>
- * <LI>supports double-clicking action/action listeners
- * <P>
- * the default JList supports ListSelectionListeners, this class adds
+ * Features added to this JList not part of standard JList growable by calling
+ * add(..), JList updates after call supports double-clicking action/action
+ * listeners the default JList supports ListSelectionListeners, this class adds
  * ActionListeners via double-clicking, selected items are converted to strings
- * via toString()
- * <P>
- * <LI>because of action events, supports single selection only
- * <P>
- * <LI>constructable with # visible rows as parameter (done via
+ * via toString() because of action events, supports single selection only
+ * constructable with # visible rows as parameter (done via
  * JList.setVisibleRowCount)
  *
- * </UL>
  *
+ * 
  * @author Owen Astrachan
  * @version 1.0 2/21/2001
  */

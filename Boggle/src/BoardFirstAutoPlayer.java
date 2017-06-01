@@ -17,24 +17,49 @@ import java.util.List;
 public class BoardFirstAutoPlayer extends AbstractAutoPlayer 
 {
 
-	public void findAllValidWords(BoggleBoard board, ILexicon lex, int minLength) 
-	{
-		clear();
-		List<BoardCell> listOfCells = new ArrayList<BoardCell>();
-		StringBuilder s = new StringBuilder();
-		for (int i = 0; i < board.size(); i++) 
-		{
-			for (int j = 0; j < board.size(); j++) 
-			{
-				// go through helper for every cell on the board
-				helper(board, lex, minLength, i, j, listOfCells, s);
-			}
-		}
-	}
 
-	private void helper(BoggleBoard board, ILexicon lex, int minLength, int r, int c, List<BoardCell> listOfCells,
-			StringBuilder s) 
-	{
+    /**
+     * TODO
+     */
+    public void findAllValidWords(
+        BoggleBoard board,
+        ILexicon lex,
+        int minLength )
+    {
+        myWords.clear();
+        List<BoardCell> listOfCells = new ArrayList<BoardCell>();
+        StringBuilder s = new StringBuilder();
+        for ( int i = 0; i < board.size(); i++ )
+        {
+            for ( int j = 0; j < board.size(); j++ )
+            {
+                // go through helper for every cell on the board
+                helper( board, lex, minLength, i, j, listOfCells, s );
+            }
+        }
+    }
+
+
+    /**
+     * TODO Write your method description here.
+     * 
+     * @param board
+     * @param lex
+     * @param minLength
+     * @param r
+     * @param c
+     * @param listOfCells
+     * @param s
+     */
+    private void helper(
+        BoggleBoard board,
+        ILexicon lex,
+        int minLength,
+        int r,
+        int c,
+        List<BoardCell> listOfCells,
+        StringBuilder s )
+    {
 
 		// don't continue if r/c out of bounds
 		if (r < 0 || r >= board.size() || c < 0 || c >= board.size()) 

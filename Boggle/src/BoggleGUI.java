@@ -67,6 +67,18 @@ public class BoggleGUI extends JFrame
     private int myBoardSize;
 
 
+    /**
+     * Boggle GUI Constructor that sets up the game and its components.
+     * 
+     * @param lex
+     *            lexicon
+     * @param finder
+     *            word finder on board
+     * @param stream
+     *            input stream
+     * @param compPlayer
+     *            computer auto player
+     */
     public BoggleGUI(
         ILexicon lex,
         IWordOnBoardFinder finder,
@@ -96,7 +108,6 @@ public class BoggleGUI extends JFrame
      * Get ready for a new game, given a letter list specification of the Boggle
      * board.
      */
-
     public void newGame()
     {
         myBoard = BoggleBoardFactory.getBoard( myBoardSize );
@@ -135,6 +146,12 @@ public class BoggleGUI extends JFrame
     }
 
 
+    /**
+     * Initializes players in the game
+     * 
+     * @param compPlayer
+     *            auto player
+     */
     private void initPlayers( IAutoPlayer compPlayer )
     {
         computerPlayer = compPlayer;
@@ -194,6 +211,9 @@ public class BoggleGUI extends JFrame
     }
 
 
+    /**
+     * Initialize GUI components
+     */
     private void initPanels()
     {
         Container contentPane = getContentPane();
@@ -211,6 +231,10 @@ public class BoggleGUI extends JFrame
     }
 
 
+    /**
+     * Creates the progress bar to show how much time is left in the game
+     * 
+     */
     private JPanel makeProgressBar()
     {
         JPanel panel = new JPanel();
@@ -235,6 +259,9 @@ public class BoggleGUI extends JFrame
     }
 
 
+    /**
+     * Stops game
+     */
     public void gameOver()
     {
         myTimer.stop();
@@ -255,6 +282,9 @@ public class BoggleGUI extends JFrame
     }
 
 
+    /**
+     * Sets up the menu bar
+     */
     private void setUpMenuBar()
     {
         // Set Up Menu Bar
@@ -470,6 +500,13 @@ public class BoggleGUI extends JFrame
         }
 
 
+        /**
+         * Highlight the dice found by the word finders either from humanPlayer
+         * words or the computer found words
+         * 
+         * @param locations
+         *            board cells that correspond to the letters
+         */
         public void highlightDice( java.util.List<BoardCell> locations )
         {
             if ( locations == null )
@@ -509,7 +546,10 @@ public class BoggleGUI extends JFrame
         }
 
 
-        // For displaying one Die on the board
+        /**
+         * Displays one die on the board
+         * 
+         */
         private class DiePanel extends JPanel
         {
             private String face;
@@ -620,9 +660,13 @@ public class BoggleGUI extends JFrame
             }
         }
 
-    } // class BoggeBoard
+    } // class BoggleBoard
 
 
+    /**
+     * Specifies the progress bar in relation to the time left
+     * 
+     */
     class BoggleProgress extends JProgressBar
     {
         private String myString;
@@ -650,7 +694,10 @@ public class BoggleGUI extends JFrame
     }
 
 
-    // Maintains name, score, and word list information for one player
+    /**
+     * Maintains name, score, and word list information for one player
+     * 
+     */
     class PlayerView extends JPanel implements IPlayerView
     {
 
@@ -767,6 +814,9 @@ public class BoggleGUI extends JFrame
         }
 
 
+        /**
+         * Displays word on the board
+         */
         public void showWord(
             String word,
             java.util.List<BoardCell> letterLocations,
@@ -790,6 +840,10 @@ public class BoggleGUI extends JFrame
     } // class ScoreArea
 
 
+    /**
+     * Describes the word text field for the user to enter words
+     * 
+     */
     class WordEntryField extends JPanel
     {
         private JTextField textField;
