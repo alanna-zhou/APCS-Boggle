@@ -34,6 +34,11 @@ public class CompressedTrieLexicon extends TrieLexicon
     }
 
 
+    /**
+     * 
+     * Removes individual nodes from data structure
+     * 
+     */
     public void removeIndividual( Node n )
     {
         // root
@@ -54,6 +59,11 @@ public class CompressedTrieLexicon extends TrieLexicon
     }
 
 
+    /**
+     * 
+     * Compresses the trielexicon through recursion
+     * 
+     */
     private void recursivelyCompress( Node n )
     {
         if ( n.parent.children.size() == 1 && n.parent.isWord ) // check
@@ -85,15 +95,15 @@ public class CompressedTrieLexicon extends TrieLexicon
 
 
     @Override
+    /**
+     * 
+     * Loads in String items from ArrayList, implements methods from TrieLexicon
+     * 
+     */
     public void load( ArrayList<String> list )
     {
         super.load( list );
         compress();
     }
-
-    // public LexStatus wordStatus( String s )
-    // {
-    // //fix
-    // }
 
 }
