@@ -1,84 +1,120 @@
 import java.util.Iterator;
 import java.util.TreeSet;
 
+
 /**
- * Supplies default implementation and state for a
- * player. Allows a player to a view, a scorekeeper, a lexicon
- * and to store words found in a game. This implementation
- * uses a set to store strings/words and updates score
- * for new words added to the player. Words are not
- * checked for being in a lexicon or on a board in the
- * <code>add</code> method.
+ * Supplies default implementation and state for a player. Allows a player to a
+ * view, a scorekeeper, a lexicon and to store words found in a game. This
+ * implementation uses a set to store strings/words and updates score for new
+ * words added to the player. Words are not checked for being in a lexicon or on
+ * a board in the <code>add</code> method.
  * 
  * @author Owen Astrachan
  *
  */
-public abstract class AbstractPlayer implements IPlayer {
-    
+public abstract class AbstractPlayer implements IPlayer
+{
+
     protected IPlayerView myView;
+
     protected TreeSet<String> myWords;
+
     protected BoggleScore myScoreKeeper;
-    
+
     protected int myScore;
-    
+
+
     /**
-     * Make this player have an associated lexicon
-     * and initialize other state appropriately.
-     * @param lex is the lexicon for this player
+     * Make this player have an associated lexicon and initialize other state
+     * appropriately.
+     * 
+     * @param lex
+     *            is the lexicon for this player
      */
-    public AbstractPlayer() {
+    public AbstractPlayer()
+    {
         myWords = new TreeSet<String>();
         myScoreKeeper = new BoggleScore();
         myScore = 0;
     }
-    
+
+
     /**
-     * Set a view for this player, if not called
-     * the player will have a null view.
-     * @param view is this player's view
+     * Set a view for this player, if not called the player will have a null
+     * view.
+     * 
+     * @param view
+     *            is this player's view
      */
-    public void setView(IPlayerView view){
+    public void setView( IPlayerView view )
+    {
         myView = view;
     }
 
-    /**
-      * Return the player's score (as calculated via updates to the
-      * <code>add</code> method).
-      * @return this player's score
-      */
-    public int getScore() {
-       return myScore;
-    }
 
     /**
-     * Add a word to this player's list of words, adjust
-     * score if word is new to this player.
-     * Duplicate words are not added, board and lexicon
-     * are <em>not checked</em>.
-     * @param word is the word added to this player
+     * Return the player's score (as calculated via updates to the
+     * <code>add</code> method).
+     * 
+     * @return this player's score
      */
-    public boolean add(String word) {
-        
-        if (! myWords.contains(word)){
-            myScore += myScoreKeeper.getScore(word,4);
-            myWords.add(word);
+    public int getScore()
+    {
+        return myScore;
+    }
+
+
+    /**
+     * Add a word to this player's list of words, adjust score if word is new to
+     * this player. Duplicate words are not added, board and lexicon are <em>not
+     * checked</em>.
+     * 
+     * @param word
+     *            is the word added to this player
+     */
+    public boolean add( String word )
+    {
+
+        if ( !myWords.contains( word ) )
+        {
+            myScore += myScoreKeeper.getScore( word, 4 );
+            myWords.add( word );
             return true;
         }
         return false;
     }
-    
-    public Iterator<String> iterator(){
+
+
+    /**
+     * Returns an iterator that can traverse the myWords Tree Set.
+     */
+    public Iterator<String> iterator()
+    {
         return myWords.iterator();
     }
 
+
+    /**
+     * Requires a Name getter method for all players.
+     */
     public abstract String getName();
-    
-    public void clear(){
+
+
+    /**
+     * Allows the player to start over in a new game.
+     */
+    public void clear()
+    {
         myWords.clear();
         myScore = 0;
     }
-    
-    public int wordCount(){
+
+
+    /**
+     * Returns the number of words found by the player.
+     */
+    public int wordCount()
+    {
         return myWords.size();
     }
 }

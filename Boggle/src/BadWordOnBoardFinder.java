@@ -17,7 +17,8 @@ public class BadWordOnBoardFinder implements IWordOnBoardFinder
 
     /**
      * Returns empty list of BoardCell objects for any query so no words will be
-     * found.
+     * found. Allows the project to compile until GoodWordOnBoardFinder is
+     * completed.
      */
     public List<BoardCell> cellsForWord( BoggleBoard board, String word )
     {

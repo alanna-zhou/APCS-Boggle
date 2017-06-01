@@ -2,6 +2,7 @@ import java.util.*;
 
 
 /**
+ * TODO add comments
  * 
  * @author Jessica Peng
  * @version Apr 28, 2017
@@ -16,12 +17,18 @@ public class BinarySearchLexicon implements ILexicon
     private ArrayList<String> myWords;
 
 
+    /**
+     * TODO
+     */
     public BinarySearchLexicon()
     {
         myWords = new ArrayList<String>();
     }
 
 
+    /**
+     * TODO
+     */
     public void load( Scanner s )
     {
         myWords.clear();
@@ -33,6 +40,9 @@ public class BinarySearchLexicon implements ILexicon
     }
 
 
+    /**
+     * TODO
+     */
     public void load( ArrayList<String> list )
     {
         myWords.clear();
@@ -41,12 +51,18 @@ public class BinarySearchLexicon implements ILexicon
     }
 
 
+    /**
+     * TODO
+     */
     public LexStatus wordStatus( StringBuilder s )
     {
         return wordStatus( s.toString() );
     }
 
 
+    /**
+     * TODO
+     */
     public LexStatus wordStatus( String s )
     {
 
@@ -67,12 +83,18 @@ public class BinarySearchLexicon implements ILexicon
     }
 
 
+    /**
+     * Returns an iterator that can traverse through the myWords Array list.
+     */
     public Iterator<String> iterator()
     {
         return myWords.iterator();
     }
 
 
+    /**
+     * Returns the number of words found by the lexicon.
+     */
     public int size()
     {
         return myWords.size();
