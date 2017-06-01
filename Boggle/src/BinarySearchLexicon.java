@@ -1,8 +1,6 @@
 import java.util.*;
 
-
 /**
- * TODO add comments
  * 
  * @author Jessica Peng
  * @version Apr 28, 2017
@@ -11,93 +9,54 @@ import java.util.*;
  *
  * @author Sources: none
  */
-public class BinarySearchLexicon implements ILexicon
-{
+public class BinarySearchLexicon implements ILexicon {
 
-    private ArrayList<String> myWords;
+	private ArrayList<String> myWords;
 
+	public BinarySearchLexicon() {
+		myWords = new ArrayList<String>();
+	}
 
-    /**
-     * TODO
-     */
-    public BinarySearchLexicon()
-    {
-        myWords = new ArrayList<String>();
-    }
+	public void load(Scanner s) {
+		myWords.clear();
+		while (s.hasNext()) {
+			myWords.add(s.next().toLowerCase());
+		}
+		Collections.sort(myWords);
+	}
 
+	public void load(ArrayList<String> list) {
+		myWords.clear();
+		myWords.addAll(list);
+		Collections.sort(myWords);
+	}
 
-    /**
-     * TODO
-     */
-    public void load( Scanner s )
-    {
-        myWords.clear();
-        while ( s.hasNext() )
-        {
-            myWords.add( s.next().toLowerCase() );
-        }
-        Collections.sort( myWords );
-    }
+	public LexStatus wordStatus(StringBuilder s) {
+		return wordStatus(s.toString());
+	}
 
+	public LexStatus wordStatus(String s) {
+		int i = Collections.binarySearch(myWords, s);
 
-    /**
-     * TODO
-     */
-    public void load( ArrayList<String> list )
-    {
-        myWords.clear();
-        myWords.addAll( list );
-        Collections.sort( myWords );
-    }
+		if (i >= 0) {
+			return LexStatus.WORD;
+		}
+		if ((-1 * (i)) - 1 == myWords.size()) {
+			return LexStatus.NOT_WORD;
+		}
+		if (myWords.get((-1 * i) - 1).startsWith(s)) {
+			return LexStatus.PREFIX;
+		} else {
+			return LexStatus.NOT_WORD;
+		}
+	}
 
+	public Iterator<String> iterator() {
+		return myWords.iterator();
+	}
 
-    /**
-     * TODO
-     */
-    public LexStatus wordStatus( StringBuilder s )
-    {
-        return wordStatus( s.toString() );
-    }
-
-
-    /**
-     * TODO
-     */
-    public LexStatus wordStatus( String s )
-    {
-
-        int i = Collections.binarySearch( myWords, s );
-        if ( i >= 0 )
-        {
-            return LexStatus.WORD;
-        }
-        else if ( myWords.get( ( i * -1 ) - 1 ).startsWith( s ) ) // not sure if
-                                                                  // this is OK
-        {
-            return LexStatus.PREFIX;
-        }
-        else
-        {
-            return LexStatus.NOT_WORD;
-        }
-    }
-
-
-    /**
-     * Returns an iterator that can traverse through the myWords Array list.
-     */
-    public Iterator<String> iterator()
-    {
-        return myWords.iterator();
-    }
-
-
-    /**
-     * Returns the number of words found by the lexicon.
-     */
-    public int size()
-    {
-        return myWords.size();
-    }
+	public int size() {
+		return myWords.size();
+	}
 
 }

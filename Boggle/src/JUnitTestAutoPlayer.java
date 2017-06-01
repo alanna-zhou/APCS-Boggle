@@ -11,7 +11,7 @@ import java.util.*;
 public class JUnitTestAutoPlayer {
 
 	private IBoardMaker myMaker;
-
+	private IWordOnBoardFinder myFinder;
 	private IAutoPlayer autoPlayer;
 
 	/**
@@ -39,6 +39,7 @@ public class JUnitTestAutoPlayer {
 	@Before
 	public void setUp() {
 		myMaker = new LocalBoardMaker();
+		myFinder = new GoodWordOnBoardFinder();
 		autoPlayer = new BoardFirstAutoPlayer();
 	}
 
@@ -73,7 +74,7 @@ public class JUnitTestAutoPlayer {
 			Iterator<String> iter = autoPlayer.iterator();
 			while (iter.hasNext()) {
 				String word = iter.next();
-				System.out.println(word);
+				assertEquals("fail for " + s, s, word);
 			}
 			// List<BoardCell> list = myFinder.cellsForWord( board, s );
 			// String word = getWord( board, list );
@@ -82,58 +83,65 @@ public class JUnitTestAutoPlayer {
 	}
 
 	/**
-	 * GoodWordOnBoardFinder is expected to find these words that are not in the
+	 * BoardFirstAutoPlayer is expected to find these words that are not in the
 	 * corner of the board.
 	 */
 	@Test
 	public void testNonCorners() {
 		String[] words = { "reinstate", "resident", "insert", "trains", "treated" };
 		BoggleBoard board = myMaker.makeBoard(4);
+		ILexicon lex = new BinarySearchLexicon();
 
 		for (String s : words) {
-			List<BoardCell> list = myFinder.cellsForWord(board, s);
-			String word = getWord(board, list);
-			assertEquals("fail for " + s, s, word);
+			autoPlayer.findAllValidWords(board, lex, board.size());
+			Iterator<String> iter = autoPlayer.iterator();
+			while (iter.hasNext()) {
+				String word = iter.next();
+				assertEquals("fail for " + s, s, word);
+			}
 		}
 	}
 
 	/**
-	 * GoodWordOnBoardFinder is expected to return an empty list because these
+	 * BoardFirstAutoPlayer is expected to return an empty list because these
 	 * should not be words found.
 	 */
 	@Test
 	public void testBadCorners() {
 		String[] cornerWords = { "notary", "urine", "need", "diners", "astride", "nosier" };
 		BoggleBoard board = myMaker.makeBoard(4);
+		ILexicon lex = new BinarySearchLexicon();
 		for (String s : cornerWords) {
-			List<BoardCell> list = myFinder.cellsForWord(board, s);
-			String word = getWord(board, list);
-			assertNotSame("fail for " + s, s, word);
+			autoPlayer.findAllValidWords(board, lex, board.size());
+			Iterator<String> iter = autoPlayer.iterator();
+			while (iter.hasNext()) {
+				String word = iter.next();
+				assertEquals("fail for " + s, s, word);
+			}
 		}
 	}
 
 	/**
-	 * GoodWordOnBoardFinder is expected to return false for duplicate cells.
+	 * BoardFirstAutoPlayer is expected to return false for duplicate cells.
 	 */
 	@Test
 	public void testDuplicates() {
 		String[] faces = { "t", "o", "h", "o", "e", "t", "p", "n", "o", "a", "e", "e", "p", "t", "y", "s" };
 		BoggleBoard board = new BoggleBoard(faces);
 
-		List<BoardCell> list = myFinder.cellsForWord(board, "tet");
-		List<BoardCell> correctList = new ArrayList<BoardCell>();
-		correctList.add(new BoardCell(0, 0));
-		correctList.add(new BoardCell(0, 1));
-		correctList.add(new BoardCell(1, 1));
-		assertNotSame("fail for tet", correctList, list);
-
-		List<BoardCell> list1 = myFinder.cellsForWord(board, "ene");
-		List<BoardCell> correctList1 = new ArrayList<BoardCell>();
-		correctList.add(new BoardCell(2, 2));
-		correctList.add(new BoardCell(1, 3));
-		correctList.add(new BoardCell(2, 3));
-		assertNotSame("fail for ene", correctList1, list1);
-
+		ILexicon lex = new BinarySearchLexicon();
+		autoPlayer.findAllValidWords(board, lex, board.size());
+		Iterator<String> iter = autoPlayer.iterator();
+		List<String> list = new ArrayList<String>();
+		while (iter.hasNext()) {
+			String word = iter.next();
+			list.add(word);
+		}
+		for (int i = 0; i < list.size(); i++) {
+			assertNotSame("fail for tet", list.get(i), "tet");
+		}
+		for (int i = 0; i < list.size(); i++) {
+			assertNotSame("fail for ene", list.get(i), "ene");
+		}
 	}
-
 }

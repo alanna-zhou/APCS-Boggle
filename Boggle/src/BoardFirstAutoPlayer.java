@@ -19,7 +19,7 @@ public class BoardFirstAutoPlayer extends AbstractAutoPlayer
 
 
     /**
-     * TODO
+     *
      */
     public void findAllValidWords(
         BoggleBoard board,
