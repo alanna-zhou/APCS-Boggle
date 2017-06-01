@@ -4,6 +4,12 @@ import java.util.*;
 import javax.swing.ProgressMonitorInputStream;
 
 
+/**
+ * Runs a given combination of a computer auto player and a lexicon to show the
+ * efficiency of each.
+ *
+ * 
+ */
 public class BoggleStats
 {
 
